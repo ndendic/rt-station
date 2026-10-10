@@ -1,0 +1,11 @@
+# Local scratch
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+# Never commit downloaded or built binaries; they belong in Releases
+/rt
+/rt.exe
+*.tar.gz
+*.zip
+/checksums.txt
