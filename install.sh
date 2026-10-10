@@ -4,7 +4,7 @@
 #   curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | sh
 #
 # Settings (all optional, read from the environment):
-#   RT_VERSION      install this release (for example 0.4.0) instead of the latest
+#   RT_VERSION      install this release (for example 0.19.0) instead of the latest
 #   RT_INSTALL_DIR  folder to install into; default: $HOME/.local/bin
 #   RT_FORCE=1      replace the target even when it is a symlink
 #   RT_BASE_URL     where releases are downloaded from; default:

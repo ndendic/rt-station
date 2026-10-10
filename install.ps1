@@ -3,7 +3,7 @@
 #   irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
 #
 # Works in Windows PowerShell 5.1 and PowerShell 7. Settings (all optional,
-# read from environment variables, for example  $env:RT_VERSION = '0.4.0'):
+# read from environment variables, for example  $env:RT_VERSION = '0.19.0'):
 #   RT_VERSION      install this release instead of the latest
 #   RT_INSTALL_DIR  folder to install into; default: %LOCALAPPDATA%\Programs\rt
 #   RT_BASE_URL     where releases are downloaded from; default:

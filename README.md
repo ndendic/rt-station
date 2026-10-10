@@ -44,7 +44,7 @@ Both installers read these environment variables. All are optional.
 
 | Variable | What it does | Default |
 |---|---|---|
-| `RT_VERSION` | Install this release instead of the latest, for example `0.4.0` | latest release |
+| `RT_VERSION` | Install this release instead of the latest, for example `0.19.0` | latest release |
 | `RT_INSTALL_DIR` | Install into this folder | Linux: `~/.local/bin`, Windows: `%LOCALAPPDATA%\Programs\rt` |
 | `RT_FORCE=1` | Linux only: replace `rt` even when it is a symlink (see below) | off |
 | `RT_BASE_URL` | Download releases from another place, for example a mirror | `https://github.com/ndendic/rt-station/releases` |
@@ -54,16 +54,18 @@ Both installers read these environment variables. All are optional.
 Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_VERSION=0.4.0 sh
+curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_VERSION=0.19.0 sh
 ```
 
 Windows:
 
 ```powershell
-$env:RT_VERSION = '0.4.0'; irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
+$env:RT_VERSION = '0.19.0'; irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
 ```
 
-The list of versions is on the [Releases page](https://github.com/ndendic/rt-station/releases).
+`0.19.0` is the first public release. Every version is listed on the
+[Releases page](https://github.com/ndendic/rt-station/releases); use any of
+them (with or without the leading `v`).
 
 ### Symlinks on Linux
 
