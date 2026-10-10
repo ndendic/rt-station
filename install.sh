@@ -11,8 +11,14 @@
 #                   https://github.com/ndendic/rt-station/releases
 #
 # Running it again is the upgrade. It never uses sudo.
+#
+# Everything is inside main(), which the last line calls. Under `curl | sh` the
+# shell runs commands as they arrive, so a download cut short would otherwise run
+# half a script; this way a cut-short file defines nothing and runs nothing.
 
 set -eu
+
+main() {
 
 REPO_RELEASES="https://github.com/ndendic/rt-station/releases"
 ARCHIVE="rt_linux_amd64.tar.gz"
@@ -85,6 +91,13 @@ installing would replace that link. Remove the link yourself, or run again
 with RT_FORCE=1 to replace it with the released binary."
 fi
 
+# A folder (or a link to one) where the binary should be: mv would put the new
+# binary inside it and report success, so stop before downloading anything.
+if [ -d "$target" ]; then
+  fail "$target is a directory. Move it out of the way, or set RT_INSTALL_DIR to
+install into another folder."
+fi
+
 # --- Temp space, removed on every exit ------------------------------------
 
 tmp=""
@@ -150,3 +163,7 @@ case ":${PATH:-}:" in
     say "  export PATH=\"$dir:\$PATH\""
     ;;
 esac
+
+}
+
+main "$@"
