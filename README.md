@@ -44,10 +44,11 @@ rt --version
 
 ```sh
 rt init my-first      # make a Workspace in the folder my-first
-rt run my-first       # run it; it prints the address to open
+rt run my-first       # run it; its log (JSON lines) names the address
 ```
 
-Open the address it prints (http://localhost:8080 by default). The first time,
+Open http://localhost:8080, the port a new Workspace uses (`PORT` in `my-first/.env`;
+the log line `"server started"` shows the address it listens on). The first time,
 make the Workspace's administrator at http://localhost:8080/admin/setup. Then `my-first/pages/README.md` shows how to publish your
 first Page. `rt` alone lists every command.
 
