@@ -44,12 +44,12 @@ rt --version
 
 ```sh
 rt init my-first      # make a Workspace in the folder my-first
-rt run my-first       # run it; its log (JSON lines) names the address
+rt run my-first       # run it; it prints the address to open
 ```
 
-Open http://localhost:8080, the port a new Workspace uses (`PORT` in `my-first/.env`;
-the log line `"server started"` shows the address it listens on). The first time,
-make the Workspace's administrator at http://localhost:8080/admin/setup. Then `my-first/pages/README.md` shows how to publish your
+Open the address it prints (http://localhost:8080 for a new Workspace; `PORT` in
+`my-first/.env`). The first time, it also prints where to make the Workspace's
+first superuser: http://localhost:8080/admin/setup. Then `my-first/pages/README.md` shows how to publish your
 first Page. `rt` alone lists every command.
 
 ## Options
@@ -58,7 +58,7 @@ Both installers read these environment variables. All are optional.
 
 | Variable | What it does | Default |
 |---|---|---|
-| `RT_VERSION` | Install this release instead of the latest, for example `0.21.1` | latest release |
+| `RT_VERSION` | Install this release instead of the latest, for example `0.21.2` | latest release |
 | `RT_INSTALL_DIR` | Install into this folder | Linux: `~/.local/bin`, Windows: `%LOCALAPPDATA%\Programs\rt` |
 | `RT_FORCE=1` | Linux only: replace `rt` even when it is a symlink (see below) | off |
 | `RT_BASE_URL` | Download releases from another place, for example a mirror | `https://github.com/ndendic/rt-station/releases` |
@@ -68,16 +68,16 @@ Both installers read these environment variables. All are optional.
 Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_VERSION=0.21.1 sh
+curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_VERSION=0.21.2 sh
 ```
 
 Windows:
 
 ```powershell
-$env:RT_VERSION = '0.21.1'; irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
+$env:RT_VERSION = '0.21.2'; irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
 ```
 
-`0.21.1` is the current release and `0.19.0` was the first public one. Every version is listed on the
+`0.21.2` is the current release and `0.19.0` was the first public one. Every version is listed on the
 [Releases page](https://github.com/ndendic/rt-station/releases); use any of
 them (with or without the leading `v`).
 
