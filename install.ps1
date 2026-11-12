@@ -168,6 +168,10 @@ function Install-RtStation {
             Write-Host ''
             Write-Host "Added $dir to your user Path. Open a new terminal to use rt there."
         }
+        Write-Host ''
+        Write-Host 'Make your first Workspace and open it:'
+        Write-Host '  rt init my-first'
+        Write-Host '  rt run my-first'
     } finally {
         $ProgressPreference = $savedProgress
         Remove-Item -LiteralPath $tmp -Recurse -Force -ErrorAction SilentlyContinue

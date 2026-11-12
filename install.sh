@@ -164,6 +164,11 @@ case ":${PATH:-}:" in
     ;;
 esac
 
+say ""
+say "Make your first Workspace and open it:"
+say "  rt init my-first"
+say "  rt run my-first"
+
 }
 
 main "$@"

@@ -1,9 +1,11 @@
 # RT Station
 
-RT Station is a single binary, `rt`, that runs Workspaces. A Workspace is one
-folder that holds an app's pages, data and plugins, and `rt` serves it live from
-that folder. Device Control, which `rt` also runs, manages the Workspaces on a
-machine.
+RT Station is a single binary, `rt`. With it your computer or server runs a
+**Studio**, and a Studio holds **Workspaces**. A Workspace is one folder; in it
+you make artifacts (Pages, Bases, Apps, Themes, Plugins), and People and Agents
+work there. `rt` serves each Workspace live from its folder. The **Studio
+Desk**, which `rt` also runs, is the page where you list, start and stop the
+Workspaces of your Studio.
 
 This repository holds the installers and the released binaries. The source code
 is not public.
@@ -37,6 +39,17 @@ Check that it works:
 ```sh
 rt --version
 ```
+
+## First steps
+
+```sh
+rt init my-first      # make a Workspace in the folder my-first
+rt run my-first       # run it; it prints the address to open
+```
+
+Open the address it prints (http://localhost:8080 by default). The first time,
+make the Workspace's administrator at http://localhost:8080/admin/setup. Then `my-first/pages/README.md` shows how to publish your
+first Page. `rt` alone lists every command.
 
 ## Options
 
@@ -104,7 +117,7 @@ rm ~/.local/bin/rt
 
 `rt` keeps the machine's state in `.rt` in your home folder (`~/.rt` on Linux,
 `%USERPROFILE%\.rt` on Windows), or in `RT_HOME` if you set it. That folder
-holds the list of Workspaces on this machine, Device Control, archives and local
+holds the list of Workspaces on this machine, the Studio Desk, archives and local
 backups. Delete it only if you want all of that gone. Your Workspaces are
 ordinary folders wherever you created them; uninstalling `rt` does not touch
 them.
