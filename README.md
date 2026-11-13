@@ -60,7 +60,7 @@ Both installers read these environment variables. All are optional.
 
 | Variable | What it does | Default |
 |---|---|---|
-| `RT_VERSION` | Install this release instead of the latest, for example `0.21.3` | latest release |
+| `RT_VERSION` | Install this release instead of the latest, for example `0.21.4` | latest release |
 | `RT_INSTALL_DIR` | Install into this folder | Linux: `~/.local/bin`, Windows: `%LOCALAPPDATA%\Programs\rt` |
 | `RT_FORCE=1` | Linux only: replace `rt` even when it is a symlink (see below) | off |
 | `RT_BASE_URL` | Download releases from another place, for example a mirror | `https://github.com/ndendic/rt-station/releases` |
@@ -70,16 +70,16 @@ Both installers read these environment variables. All are optional.
 Linux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_VERSION=0.21.3 sh
+curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_VERSION=0.21.4 sh
 ```
 
 Windows:
 
 ```powershell
-$env:RT_VERSION = '0.21.3'; irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
+$env:RT_VERSION = '0.21.4'; irm https://raw.githubusercontent.com/ndendic/rt-station/main/install.ps1 | iex
 ```
 
-`0.21.3` is the current release and `0.19.0` was the first public one. Every version is listed on the
+`0.21.4` is the current release and `0.19.0` was the first public one. Every version is listed on the
 [Releases page](https://github.com/ndendic/rt-station/releases); use any of
 them (with or without the leading `v`).
 
@@ -101,6 +101,19 @@ release (or with `RT_VERSION`).
   it to `rt.exe.old` first and puts the new `rt.exe` in its place. The next run
   of the installer deletes old `rt.exe.old` files that are no longer in use.
   Restart running Workspaces to use the new version.
+
+On Linux, when `rt ws ls` lists your Workspaces, let the new binary move them before you
+install it, so each one is backed up, restarted and checked:
+
+```sh
+d=$(mktemp -d)
+curl -fsSL https://raw.githubusercontent.com/ndendic/rt-station/main/install.sh | RT_INSTALL_DIR=$d sh
+"$d/rt" device update          # the plan; nothing changes
+"$d/rt" device update --apply
+```
+
+Then run the install command above. Installed first, `rt device update` reports the
+Workspaces updated but leaves them on the old binary until `rt ws restart <name>`.
 
 ## Uninstall
 
